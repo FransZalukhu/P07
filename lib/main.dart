@@ -1,45 +1,80 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(HelloApp());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class HelloApp extends StatelessWidget {
+  const HelloApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter',
+      title: 'Hello App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'TI-RPL',
-            style: GoogleFonts.manrope(
-                fontWeight: FontWeight.w800, letterSpacing: 2.0),
-          ),
-          backgroundColor: Colors.amberAccent,
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Demo Flutter',
+          style: GoogleFonts.manrope(fontWeight: FontWeight.w700),
         ),
-        body: Center(
-          child: Text('Rekayasa Perangkat Lunak',
-              style: GoogleFonts.manrope(
-                shadows: [
-                  Shadow(
-                      blurRadius: 3.0,
-                      color: Colors.black54,
-                      offset: Offset(1.0, 1.0))
-                ],
-                fontSize: 25,
-                fontWeight: FontWeight.w700,
-              ),
-              textDirection: TextDirection.ltr),
-        ),
+        backgroundColor: Colors.amberAccent,
+      ),
+      body: Center(
+        child: HelloButton(),
       ),
     );
   }
+}
+
+class HelloButton extends StatelessWidget {
+  const HelloButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.amberAccent,
+      ),
+      child: Text(
+        'Hello',
+        style: GoogleFonts.pixelifySans(fontSize: 20, color: Colors.black),
+      ),
+      onPressed: () {
+        action(context);
+      },
+    );
+  }
+}
+
+void action(BuildContext context) {
+  var alertDialog = AlertDialog(
+    title: Text(
+      'Event-Handling',
+      style: GoogleFonts.manrope(fontWeight: FontWeight.w700),
+    ),
+    content: Text(
+      'Hello World!',
+      style: GoogleFonts.manrope(),
+    ),
+  );
+
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alertDialog;
+    },
+  );
 }
