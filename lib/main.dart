@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() => runApp(CounterApp());
+void main() => runApp(MyApp());
 
-class CounterApp extends StatelessWidget {
-  const CounterApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,71 +19,61 @@ class CounterApp extends StatelessWidget {
   }
 }
 
-class Home extends StatefulWidget {
+class Home extends StatelessWidget {
   const Home({super.key});
-
-  @override
-  HomeState createState() => HomeState();
-}
-
-class HomeState extends State<Home> {
-  int counter = 0;
-
-  void incrementCounter() {
-    setState(() {
-      counter++;
-    });
-  }
-
-  void decrementCounter() {
-    setState(() {
-      counter--;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.amberAccent,
         title: Text(
-          'Demo StatefulWidget',
+          'Demo Row',
           style: GoogleFonts.manrope(fontWeight: FontWeight.w700),
         ),
+        backgroundColor: Colors.amberAccent,
       ),
       body: Center(
-        child: Column(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'Nilai Counter : $counter',
-              style: GoogleFonts.pixelifySans(fontSize: 30),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.amberAccent,
+                foregroundColor: Colors.black87,
+              ),
+              child: Text('Button 1',
+                  style: GoogleFonts.pixelifySans(fontWeight: FontWeight.w600)),
+              onPressed: () {},
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.amberAccent,
-                    foregroundColor: Colors.black87,
-                  ),
-                  onPressed: decrementCounter,
-                  child: Text('<',
-                      style: GoogleFonts.pixelifySans(
-                          fontWeight: FontWeight.w600)),
-                ),
-                SizedBox(width: 10.0),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.amberAccent,
-                    foregroundColor: Colors.black87,
-                  ),
-                  onPressed: incrementCounter,
-                  child: Text('>',
-                      style: GoogleFonts.pixelifySans(
-                          fontWeight: FontWeight.w600)),
-                ),
-              ],
+            Container(width: 10),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.amberAccent,
+                foregroundColor: Colors.black87,
+              ),
+              child: Text('Button 2',
+                  style: GoogleFonts.pixelifySans(fontWeight: FontWeight.w600)),
+              onPressed: () {},
+            ),
+            Container(width: 10),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.amberAccent,
+                foregroundColor: Colors.black87,
+              ),
+              child: Text('Button 3',
+                  style: GoogleFonts.pixelifySans(fontWeight: FontWeight.w600)),
+              onPressed: () {},
+            ),
+            Container(width: 10),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.amberAccent,
+                foregroundColor: Colors.black87,
+              ),
+              child: Text('Button 4',
+                  style: GoogleFonts.pixelifySans(fontWeight: FontWeight.w600)),
+              onPressed: () {},
             ),
           ],
         ),
