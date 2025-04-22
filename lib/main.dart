@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Jarak Komponen',
+      title: 'Metode Text.softWrap',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -17,28 +19,41 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
+  final String longText = """
+    Politeknik Negeri Bengkalis (POLBENG) adalah satu-satunya politeknik negeri yang berada di Riau.
+    Pada tanggal 29 Juli 2011, Politeknik Bengkalis resmi menjadi PTN dengan nama Politeknik Negeri Bengkalis melalui Peraturan Menteri Pendidikan Nasional (Permendiknas) No. 28 tahun 2011.
+    Hingga saat ini, POLBENG memiliki 8 jurusan yaitu teknik perkapalan, teknik mesin, teknik elektro, teknik sipil, administrasi niaga, teknik informatika, kemaritiman, dan bahasa.
+  """;
+
+  const Home({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Metode EdgeInsets.only'),
+        title: Text('Metode Text.softWrap'),
       ),
-      body: Row(
+      body: Column(
         children: <Widget>[
-          Expanded(
-            child: Container(
-              color: Colors.lightBlue,
-              margin: const EdgeInsets.only(
-                top: 50.0,
+          Container(
+            margin: EdgeInsets.all(5.0),
+            padding: EdgeInsets.all(10.0),
+            child: Text(
+              'Politeknik Negeri Bengkalis',
+              style: TextStyle(
+                fontSize: 26.0,
+                fontWeight: FontWeight.bold,
               ),
-              padding: const EdgeInsets.only(
-                left: 70.0,
-                right: 10.0,
-              ),
-              child: ElevatedButton(
-                child: Text('Button'),
-                onPressed: () {},
-              ),
+            ),
+          ),
+          SizedBox(height: 10.0),
+          Container(
+            margin: EdgeInsets.all(5.0),
+            padding: EdgeInsets.all(10.0),
+            child: Text(
+              longText,
+              style: TextStyle(fontSize: 20.0),
+              softWrap: true,
             ),
           ),
         ],
