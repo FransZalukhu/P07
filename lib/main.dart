@@ -26,14 +26,14 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.amberAccent,
         title: Text(
-          'Demo Row',
+          'Demo Column',
           style: GoogleFonts.manrope(fontWeight: FontWeight.w700),
         ),
-        backgroundColor: Colors.amberAccent,
       ),
       body: Center(
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ElevatedButton(
@@ -45,7 +45,9 @@ class Home extends StatelessWidget {
                   style: GoogleFonts.pixelifySans(fontWeight: FontWeight.w600)),
               onPressed: () {},
             ),
-            Container(width: 10),
+            Container(
+              height: 10,
+            ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.amberAccent,
@@ -55,7 +57,9 @@ class Home extends StatelessWidget {
                   style: GoogleFonts.pixelifySans(fontWeight: FontWeight.w600)),
               onPressed: () {},
             ),
-            Container(width: 10),
+            Container(
+              height: 10,
+            ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.amberAccent,
@@ -65,7 +69,9 @@ class Home extends StatelessWidget {
                   style: GoogleFonts.pixelifySans(fontWeight: FontWeight.w600)),
               onPressed: () {},
             ),
-            Container(width: 10),
+            Container(
+              height: 10,
+            ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.amberAccent,
