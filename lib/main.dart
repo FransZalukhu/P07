@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Metode Text.softWrap',
+      title: 'Mengatur Teks dan Gambar',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -19,42 +19,26 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
-  final String longText = """
-    Politeknik Negeri Bengkalis (POLBENG) adalah satu-satunya politeknik negeri yang berada di Riau.
-    Pada tanggal 29 Juli 2011, Politeknik Bengkalis resmi menjadi PTN dengan nama Politeknik Negeri Bengkalis melalui Peraturan Menteri Pendidikan Nasional (Permendiknas) No. 28 tahun 2011.
-    Hingga saat ini, POLBENG memiliki 8 jurusan yaitu teknik perkapalan, teknik mesin, teknik elektro, teknik sipil, administrasi niaga, teknik informatika, kemaritiman, dan bahasa.
-  """;
-
   const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Metode Text.softWrap'),
+        title: Text('Metode ListView'),
       ),
-      body: Column(
+      body: ListView(
         children: <Widget>[
-          Container(
-            margin: EdgeInsets.all(5.0),
-            padding: EdgeInsets.all(10.0),
-            child: Text(
-              'Politeknik Negeri Bengkalis',
-              style: TextStyle(
-                fontSize: 26.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+          Image.asset(
+            'assets/images/Kemendikbud.png',
+            height: 250.0,
+            fit: BoxFit.fill,
           ),
-          SizedBox(height: 10.0),
-          Container(
-            margin: EdgeInsets.all(5.0),
-            padding: EdgeInsets.all(10.0),
-            child: Text(
-              longText,
-              style: TextStyle(fontSize: 20.0),
-              softWrap: true,
-            ),
+          Divider(),
+          Image.asset(
+            'assets/images/polbeng_logo.png',
+            height: 250.0,
+            fit: BoxFit.cover,
           ),
         ],
       ),
